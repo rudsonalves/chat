@@ -1,6 +1,10 @@
-import 'package:chat/models/auth_form_data.dart';
-import 'package:chat/utils/form_validator.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+
+import './user_image_picker.dart';
+import '../models/auth_form_data.dart';
+import '../utils/form_validator.dart';
 
 class AuthForm extends StatefulWidget {
   final void Function(AuthFormData) onSubmit;
@@ -13,16 +17,38 @@ class AuthForm extends StatefulWidget {
 
 class _AuthFormState extends State<AuthForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   final AuthFormData _formData = AuthFormData();
+
+  void _handleImagePicke(File image) {
+    _formData.image = image;
+  }
 
   @override
   void dispose() {
     super.dispose();
   }
 
+  void _showError(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Theme.of(context).colorScheme.error,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+      ),
+    );
+  }
+
   void _submit() {
     if (!_formKey.currentState!.validate()) return;
+
+    if (_formData.image == null && _formData.isSignUp) {
+      return _showError('Image not selected!');
+    }
 
     widget.onSubmit(_formData);
   }
@@ -30,6 +56,10 @@ class _AuthFormState extends State<AuthForm> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 10,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       margin: const EdgeInsets.all(20),
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -37,6 +67,10 @@ class _AuthFormState extends State<AuthForm> {
           key: _formKey,
           child: Column(
             children: [
+              if (_formData.isSignUp)
+                UserImagePicker(
+                  _handleImagePicke,
+                ),
               if (_formData.isSignUp)
                 TextFormField(
                   key: const ValueKey('name'),
