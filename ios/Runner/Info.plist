@@ -16,6 +16,12 @@
 	<string>chat</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need access to let you pick an image.</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
@@ -47,5 +53,6 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	
 </dict>
 </plist>
