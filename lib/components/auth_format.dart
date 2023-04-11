@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import './user_image_picker.dart';
-import '../models/auth_form_data.dart';
+import '../core/models/auth_form_data.dart';
 import '../utils/form_validator.dart';
 
 class AuthForm extends StatefulWidget {
@@ -92,8 +92,8 @@ class _AuthFormState extends State<AuthForm> {
               ),
               TextFormField(
                 key: const ValueKey('password'),
-                initialValue: _formData.pasword,
-                onChanged: (value) => _formData.pasword = value,
+                initialValue: _formData.password,
+                onChanged: (value) => _formData.password = value,
                 validator: FormValidator.isValidPassword,
                 obscureText: true,
                 decoration: const InputDecoration(
@@ -105,7 +105,7 @@ class _AuthFormState extends State<AuthForm> {
                   key: const ValueKey('check_password'),
                   validator: (value) {
                     final checkPassword = value ?? '';
-                    if (checkPassword != _formData.pasword) {
+                    if (checkPassword != _formData.password) {
                       return 'Password don\'t match!';
                     }
                     return null;
