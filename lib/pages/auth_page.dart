@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../components/auth_format.dart';
-import '../models/auth_form_data.dart';
+import '../core/models/auth_form_data.dart';
+import '../core/services/auth/auth_service.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -13,12 +14,30 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   bool _isLoading = false;
 
-  void _handleSubmit(AuthFormData formData) {
-    setState(() => _isLoading = true);
+  Future<void> _handleSubmit(AuthFormData formData) async {
+    try {
+      setState(() => _isLoading = true);
 
-    print('[LOG] ${formData.name} ${formData.email} ${formData.pasword}');
-
-    setState(() => _isLoading = false);
+      if (formData.isLogin) {
+        // Login
+        await AuthService().login(
+          formData.email,
+          formData.password,
+        );
+      } else {
+        // Sign Up
+        await AuthService().signUp(
+          formData.name,
+          formData.email,
+          formData.password,
+          formData.image,
+        );
+      }
+    } catch (error) {
+      // Error
+    } finally {
+      setState(() => _isLoading = false);
+    }
   }
 
   @override
