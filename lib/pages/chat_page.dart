@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../components/new_message.dart';
 import '../core/services/auth/auth_service.dart';
+import '../components/messages.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
@@ -11,16 +13,44 @@ class ChatPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Chat'),
         centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Chat Page'),
-            TextButton(
-              onPressed: () => AuthService().logout(),
-              child: const Text('Logout'),
+        actions: [
+          DropdownButton(
+            items: [
+              DropdownMenuItem(
+                value: 'logout',
+                child: Container(
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.exit_to_app,
+                        color: Colors.black87,
+                      ),
+                      SizedBox(width: 10),
+                      Text('Exit'),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+            onChanged: (value) {
+              if (value == 'logout') {
+                AuthService().logout();
+              }
+            },
+            icon: Icon(
+              Icons.more_vert,
+              color: Theme.of(context).primaryIconTheme.color,
             ),
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: Message(),
+            ),
+            NewMessage(),
           ],
         ),
       ),
