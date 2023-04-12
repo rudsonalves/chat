@@ -18,17 +18,15 @@ class ChatPage extends StatelessWidget {
             items: [
               DropdownMenuItem(
                 value: 'logout',
-                child: Container(
-                  child: Row(
-                    children: const [
-                      Icon(
-                        Icons.exit_to_app,
-                        color: Colors.black87,
-                      ),
-                      SizedBox(width: 10),
-                      Text('Exit'),
-                    ],
-                  ),
+                child: Row(
+                  children: const [
+                    Icon(
+                      Icons.exit_to_app,
+                      color: Colors.black87,
+                    ),
+                    SizedBox(width: 10),
+                    Text('Exit'),
+                  ],
                 ),
               ),
             ],
@@ -46,7 +44,7 @@ class ChatPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Column(
-          children: [
+          children: const [
             Expanded(
               child: Message(),
             ),
