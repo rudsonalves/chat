@@ -118,7 +118,7 @@ class _AuthFormState extends State<AuthForm> {
               const SizedBox(height: 12),
               ElevatedButton(
                 onPressed: _submit,
-                child: Text(_formData.isLogin ? 'Sign Up' : 'Sign In'),
+                child: Text(_formData.isLogin ? 'Login' : 'Sign Up'),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +132,7 @@ class _AuthFormState extends State<AuthForm> {
                         _formData.toggleAuthMode();
                       });
                     },
-                    child: Text(_formData.isLogin ? 'Login!' : 'Sign Up!'),
+                    child: Text(_formData.isLogin ? 'Sign Up!' : 'Login!'),
                   ),
                 ],
               ),
