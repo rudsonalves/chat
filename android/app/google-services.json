@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "272553032059",
-    "project_id": "chat-c2d2e",
-    "storage_bucket": "chat-c2d2e.appspot.com"
+    "project_number": "1023774852615",
+    "project_id": "mychat-4ead5",
+    "storage_bucket": "mychat-4ead5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:272553032059:android:64b9bb71fc9f9a07dba5de",
+        "mobilesdk_app_id": "1:1023774852615:android:d436f73d079aa513f80ca2",
         "android_client_info": {
           "package_name": "br.com.jrblog.chat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "272553032059-smdlkkcgv7si6f2p1acffao9rkkp46ne.apps.googleusercontent.com",
+          "client_id": "1023774852615-c754quep2ij13g15g88fg2j601u8j73t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCSr4_WD8VwTUCQPrhoe6k3u0cUDESlMdk"
+          "current_key": "AIzaSyArlFAVV0YVimowTg-_tVdq5ciQx7NsFtM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "272553032059-smdlkkcgv7si6f2p1acffao9rkkp46ne.apps.googleusercontent.com",
+              "client_id": "1023774852615-c754quep2ij13g15g88fg2j601u8j73t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
