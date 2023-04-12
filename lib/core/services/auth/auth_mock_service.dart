@@ -3,14 +3,15 @@ import 'dart:io';
 import 'dart:math';
 
 import '../../../core/models/chat_user.dart';
+import '../../../utils/constants.dart';
 import './auth_service.dart';
 
 class AuthMockService implements AuthService {
   static final _defaultUser = ChatUser(
-    id: '0',
-    name: 'test',
-    email: 'test@email.com',
-    imageUrl: 'assets/images/noimage.png',
+    id: '123',
+    name: 'Bia',
+    email: 'bia@email.com',
+    imageUrl: defaultAvatarImage,
   );
 
   static final Map<String, ChatUser> _users = {
@@ -52,7 +53,7 @@ class AuthMockService implements AuthService {
       id: Random().nextDouble().toString(),
       name: name,
       email: email,
-      imageUrl: image?.path ?? 'assets/images/noimage.png',
+      imageUrl: image?.path ?? defaultAvatarImage,
     );
 
     _users.putIfAbsent(email, () => newUser);
