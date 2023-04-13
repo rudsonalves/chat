@@ -52,7 +52,7 @@ class ChatMockService implements ChatService {
       createdAt: DateTime.now(),
       userId: user.id,
       userName: user.name,
-      userImageURL: user.imageUrl,
+      userImageUrl: user.imageUrl,
     );
 
     _msg.add(newMessage);

@@ -19,7 +19,7 @@ class _AuthFormState extends State<AuthForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final AuthFormData _formData = AuthFormData();
 
-  void _handleImagePicke(File image) {
+  void _handleImagePick(File image) {
     _formData.image = image;
   }
 
@@ -44,7 +44,8 @@ class _AuthFormState extends State<AuthForm> {
   }
 
   void _submit() {
-    if (!_formKey.currentState!.validate()) return;
+    final isValid = _formKey.currentState?.validate() ?? false;
+    if (!isValid) return;
 
     if (_formData.image == null && _formData.isSignUp) {
       return _showError('Image not selected!');
@@ -69,7 +70,7 @@ class _AuthFormState extends State<AuthForm> {
             children: [
               if (_formData.isSignUp)
                 UserImagePicker(
-                  _handleImagePicke,
+                  _handleImagePick,
                 ),
               if (_formData.isSignUp)
                 TextFormField(

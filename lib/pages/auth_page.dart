@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/auth_format.dart';
+import '../components/auth_form.dart';
 import '../core/models/auth_form_data.dart';
 import '../core/services/auth/auth_service.dart';
 

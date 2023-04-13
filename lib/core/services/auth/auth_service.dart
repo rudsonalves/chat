@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:chat/core/services/auth/auth_firebase_service.dart';
 
-import './auth_mock_service.dart';
 import '../../models/chat_user.dart';
 
 abstract class AuthService {
