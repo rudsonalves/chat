@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -21,11 +22,6 @@ class _AuthFormState extends State<AuthForm> {
 
   void _handleImagePick(File image) {
     _formData.image = image;
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   void _showError(String message) {
@@ -87,6 +83,7 @@ class _AuthFormState extends State<AuthForm> {
                 initialValue: _formData.email,
                 onChanged: (value) => _formData.email = value,
                 validator: FormValidator.isValidEmail,
+                keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: 'Email',
                 ),
@@ -96,6 +93,7 @@ class _AuthFormState extends State<AuthForm> {
                 initialValue: _formData.password,
                 onChanged: (value) => _formData.password = value,
                 validator: FormValidator.isValidPassword,
+                keyboardType: TextInputType.emailAddress,
                 obscureText: true,
                 decoration: const InputDecoration(
                   labelText: 'Your password',
